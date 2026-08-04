@@ -18,3 +18,15 @@ def infer_shape(data):
         return (len(data), ) + first_shape
     
     raise ValueError(f"Unsupported data type: {type(data)}")
+
+def numel(data):
+    """
+    Calculates the number of elements in the given data.
+    """
+    shape = infer_shape(data)
+
+    numel = 1
+    for dim in shape:
+        numel *= dim
+
+    return numel
