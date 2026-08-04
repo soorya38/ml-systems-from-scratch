@@ -52,3 +52,15 @@ def infer_dtype(data):
     
     raise ValueError(f"Unsupported data type: {type(data)}")
 
+def flatten(data):
+    """
+    Flattens the given data into a 1D list.
+    """
+
+    if isinstance(data, (int, float)):
+        return [data]
+    
+    if len(data) == 0:
+        return []
+    
+    return flatten(data[0]) + flatten(data[1:])
