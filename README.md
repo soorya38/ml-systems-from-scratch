@@ -24,3 +24,5 @@ tests/          Test suite
 
 * [x] Repository initialized
 * [x] Development environment configured
+* [x] ML basics
+* [x] Tensor utility functions
