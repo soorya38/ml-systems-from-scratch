@@ -30,3 +30,25 @@ def numel(data):
         numel *= dim
 
     return numel
+
+def infer_dtype(data):
+    """
+    Infers the data type of the given data.
+    """
+    if isinstance(data, (int, float)):
+        return type(data)
+    
+    if isinstance(data, list):
+        if len(data) == 0:
+            raise ValueError("Empty list has no data type")
+        
+        first_dtype = infer_dtype(data[0])
+
+        for item in data:
+            if infer_dtype(item) != first_dtype:
+                raise ValueError("All elements must have the same data type")
+        
+        return first_dtype
+    
+    raise ValueError(f"Unsupported data type: {type(data)}")
+
