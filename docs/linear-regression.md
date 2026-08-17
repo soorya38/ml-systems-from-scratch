@@ -7,9 +7,9 @@ It assumes there is an approximately **linear relationship** between the input(s
 ---
 
 ## Mathematical Equation
-\[
+$$
 y = mx + c
-\]
+$$
 
 Where:
 - **y** → Actual output
@@ -20,9 +20,9 @@ Where:
 ---
 
 ## Machine Learning Equation
-\[
+$$
 ŷ = wx + b
-\]
+$$
 
 Where:
 - **ŷ (y-hat)** → Predicted output
@@ -51,12 +51,13 @@ This process is repeated until the model finds values of **w** and **b** that pr
 Gradient Descent is the optimization algorithm used to learn the best values of **w** and **b**.
 Its goal is to **minimize the loss function** by repeatedly updating the parameters in the direction that reduces the loss the most.<br>
 The update rule is:<br>
-\[
+$$
 w := w - \alpha \frac{\partial L}{\partial w}
-\]<br>
-\[
+$$
+
+$$
 b := b - \alpha \frac{\partial L}{\partial b}
-\]
+$$
 
 Where:
 - **α (alpha)** = Learning Rate
@@ -117,9 +118,9 @@ The output produced by the model.
 
 The difference between the actual value and the predicted value.
 
-\[
-\text{Error} = y - \hat{y}
-\]
+$$
+Error = y − ŷ
+$$
 
 ---
 
@@ -135,9 +136,9 @@ The optimization algorithm tries to minimize this value.
 
 The most common loss function for linear regression.
 
-\[
-MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-\]
+$$
+\text{MSE}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
 
 It is the **average of the squared prediction errors**.
 
