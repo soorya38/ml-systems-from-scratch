@@ -20,8 +20,4 @@ def vector_sum(a: list[int|float], b: list[int|float]) -> list[int|float]:
 	if len(a) != len(b):
 		return -1
 	
-	ans = []
-	for i in range(0, len(a)):
-		ans.append(a[i]+b[i])
-	
-	return ans
+	return [x + y for x, y in zip(a, b)]
