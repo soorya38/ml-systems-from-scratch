@@ -1820,49 +1820,494 @@ You are ready to continue if you can:
 
 ---
 
-# Overall Understanding
+# Topic: Cosine Similarity
 
-After these five topics, you should have the following mental model:
+## Description
+
+**Cosine similarity** measures how similar two vectors are based on their **direction**, while ignoring their overall size.
+
+Think of two vectors as arrows:
+
+* If they point in the **same direction** → cosine similarity is `1`.
+* If they are **perpendicular** → cosine similarity is `0`.
+* If they point in **opposite directions** → cosine similarity is `-1`.
+
+The formula is:
+
+[
+\text{cosine similarity}(a,b)
+=============================
+
+\frac{a\cdot b}{|a|_2|b|_2}
+]
+
+where:
+
+* `a · b` = dot product of vectors `a` and `b`
+* `||a||₂` = L2 norm (length) of `a`
+* `||b||₂` = L2 norm (length) of `b`
+
+So the calculation is essentially:
 
 ```text
-VECTOR
-  │
-  ├── represents features / information
-  │
-  ├── add / subtract
-  ├── scale
-  └── dot product → weighted combination → one number
-                    │
-                    ↓
-                 MATRIX
-                    │
-                    ├── stores many vectors
-                    ├── rows / columns
-                    └── matrix multiplication
-                           │
-                           ↓
-                    applies many
-                    weighted combinations
-                           │
-                           ↓
-                      ML models
+                 dot product
+cosine similarity = ─────────────────────
+                    length × length
 ```
 
-And:
+### Why divide by the lengths?
+
+The dot product is affected by both **direction and magnitude**.
+
+Cosine similarity removes the magnitude effect by dividing by the two vector lengths.
+
+Therefore:
+
+> **Cosine similarity asks: "How much do these two vectors point in the same direction?"**
+
+---
+
+## Visual Example
+
+### Same direction
 
 ```text
-Vector
-  │
-  └── Norm → "How large is it?"
-         │
-         ├── L1 → add absolute values
-         └── L2 → geometric length
-
-Vectors
-  │
-  └── Linear independence
-          │
-          ├── Independent → genuinely different directions
-          └── Dependent → some information can be constructed
-                          from the others
+             b
+            ↗
+           /
+          / a
+         ↗
+        /
+-------•----------------→
 ```
+
+Both arrows point in the same direction.
+
+```text
+cosine similarity = 1
+```
+
+### Perpendicular
+
+```text
+       b
+       ↑
+       |
+       |
+-------•--------→ a
+```
+
+The vectors are at `90°`.
+
+```text
+cosine similarity = 0
+```
+
+### Opposite direction
+
+```text
+a ←-----------•-----------→ b
+```
+
+They point in opposite directions.
+
+```text
+cosine similarity = -1
+```
+
+---
+
+## Worked Examples
+
+### Example 1 — Identical Direction
+
+Given:
+
+```text
+a = [1, 0]
+b = [2, 0]
+```
+
+These vectors point in exactly the same direction.
+
+Let's calculate it.
+
+#### Step 1: Dot product
+
+```text
+a · b
+= (1×2) + (0×0)
+= 2
+```
+
+#### Step 2: L2 norms
+
+For `a`:
+
+```text
+||a||₂
+= √(1² + 0²)
+= 1
+```
+
+For `b`:
+
+```text
+||b||₂
+= √(2² + 0²)
+= 2
+```
+
+#### Step 3: Cosine similarity
+
+```text
+cos(a,b)
+= 2 / (1×2)
+= 1
+```
+
+**Answer: `1`**
+
+Notice something important:
+
+`a = [1,0]`
+
+and
+
+`b = [2,0]`
+
+have different lengths, but their cosine similarity is still `1`.
+
+That's because cosine similarity cares about **direction**, not magnitude.
+
+---
+
+### Example 2 — Perpendicular Vectors
+
+Given:
+
+```text
+a = [1, 0]
+b = [0, 1]
+```
+
+Visual:
+
+```text
+       b
+       ↑
+       |
+       |
+-------•------→ a
+```
+
+#### Step 1: Dot product
+
+```text
+a · b
+= (1×0) + (0×1)
+= 0
+```
+
+#### Step 2: Norms
+
+```text
+||a||₂ = 1
+||b||₂ = 1
+```
+
+#### Step 3: Cosine similarity
+
+```text
+cos(a,b)
+= 0 / (1×1)
+= 0
+```
+
+**Answer: `0`**
+
+The vectors have no directional alignment.
+
+---
+
+### Example 3 — A More Realistic Calculation
+
+Given:
+
+```text
+a = [1, 2]
+b = [2, 3]
+```
+
+#### Step 1: Dot product
+
+```text
+a · b
+= (1×2) + (2×3)
+= 2 + 6
+= 8
+```
+
+#### Step 2: Calculate the lengths
+
+For `a`:
+
+```text
+||a||₂
+= √(1² + 2²)
+= √5
+```
+
+For `b`:
+
+```text
+||b||₂
+= √(2² + 3²)
+= √13
+```
+
+#### Step 3: Divide
+
+```text
+cos(a,b)
+= 8 / (√5 × √13)
+
+= 8 / √65
+
+≈ 0.992
+```
+
+**Answer: approximately `0.992`**
+
+This is very close to `1`, meaning the vectors point in very similar directions.
+
+---
+
+### Example 4 — Opposite Directions
+
+Given:
+
+```text
+a = [1, 2]
+b = [-1, -2]
+```
+
+Notice:
+
+```text
+b = -a
+```
+
+So the vectors point in exactly opposite directions.
+
+#### Dot product
+
+```text
+a · b
+= (1×-1) + (2×-2)
+= -1 - 4
+= -5
+```
+
+#### Norms
+
+```text
+||a||₂ = √5
+||b||₂ = √5
+```
+
+#### Cosine similarity
+
+```text
+cos(a,b)
+= -5 / (√5 × √5)
+= -5 / 5
+= -1
+```
+
+**Answer: `-1`**
+
+---
+
+## Machine Learning Connection
+
+Cosine similarity is particularly useful when comparing **vectors that represent information**.
+
+For example, suppose an ML model produces embeddings:
+
+```text
+sentence A → [0.8, 0.6]
+sentence B → [0.9, 0.7]
+```
+
+Their cosine similarity is close to `1`, so their representations point in similar directions.
+
+This is commonly useful for:
+
+* comparing text embeddings
+* semantic search
+* finding similar documents
+* recommendation systems
+* comparing image/audio embeddings
+
+### Why not just use Euclidean distance?
+
+Consider:
+
+```text
+a = [1, 2]
+b = [2, 4]
+```
+
+`b` is twice as large as `a`, but it points in exactly the same direction.
+
+Cosine similarity:
+
+```text
+cos(a,b) = 1
+```
+
+So cosine similarity recognizes:
+
+> **"These vectors have the same pattern/direction, even though one is larger."**
+
+This is often useful for embeddings where the direction contains more useful information than the magnitude.
+
+---
+
+## Exercises
+
+### Easy
+
+1. Calculate the cosine similarity:
+
+```text
+a = [1, 0]
+b = [1, 0]
+```
+
+2. Calculate the cosine similarity:
+
+```text
+a = [1, 0]
+b = [0, 1]
+```
+
+3. What is the cosine similarity of two vectors pointing in exactly opposite directions?
+
+### Medium
+
+4. Calculate the cosine similarity:
+
+```text
+a = [1, 2]
+b = [2, 4]
+```
+
+5. Calculate the cosine similarity:
+
+```text
+a = [3, 0]
+b = [0, 5]
+```
+
+6. Calculate the cosine similarity:
+
+```text
+a = [1, 1]
+b = [1, 0]
+```
+
+### Hard
+
+7. Consider:
+
+```text
+a = [2, 4]
+b = [1, 2]
+```
+
+Without doing the complete calculation, predict the cosine similarity.
+
+Then verify your answer mathematically.
+
+8. Two vectors have cosine similarity `0.99`.
+
+Is it correct to say:
+
+> "The vectors have almost the same magnitude."
+
+Or:
+
+> "The vectors point in almost the same direction."
+
+Which statement is correct? Explain briefly.
+
+---
+
+## Expected Answers
+
+1. Answer: `1`
+
+2. Answer: `0`
+
+3. Answer: `-1`
+
+4. Answer:
+
+```text
+dot = 1×2 + 2×4 = 10
+norms = √5 and √20
+
+cos = 10 / (√5 × √20) = 1
+```
+
+5. Answer:
+
+```text
+dot = 3×0 + 0×5 = 0
+cos = 0
+```
+
+6. Answer:
+
+```text
+dot = 1
+norms = √2 and 1
+
+cos = 1/√2 ≈ 0.707
+```
+
+7. Answer: `1`, because `a = 2b`; they point in exactly the same direction.
+
+8. Answer: **The second statement.** Cosine similarity measures directional similarity, not whether the magnitudes are similar.
+
+---
+
+## What I Should Know Before Moving On
+
+You are ready to continue if you can:
+
+* Explain what cosine similarity measures.
+
+* Explain why it cares about direction rather than magnitude.
+
+* Calculate a dot product.
+
+* Calculate L2 norms.
+
+* Calculate cosine similarity using:
+
+  [
+  \frac{a\cdot b}{|a|_2|b|_2}
+  ]
+
+* Interpret:
+
+  * `1` → same direction
+  * `0` → perpendicular
+  * `-1` → opposite direction
+
+* Explain why `[1,2]` and `[2,4]` have cosine similarity `1`.
+
+* Explain why cosine similarity is useful for comparing ML embeddings.
