@@ -12,10 +12,23 @@
 # Reasoning:
 # The function calculates the dot product by multiplying corresponding elements of the two vectors and summing the results. For vec1 = [1, 2, 3] and vec2 = [4, 5, 6], the result is (1 * 4) + (2 * 5) + (3 * 6) = 32.
 
-def dot_product(a: list[int|float], b: list[int|float]) -> int:
-	# Calculate the dot product of two vectors.
-	# If vectors have different lengths, return -1.
-	if len(a) != len(b):
+import numpy as np
+
+def calculate_dot_product(vec1, vec2):
+	"""
+	Calculate the dot product of two vectors.
+	Args:
+		vec1 (numpy.ndarray): 1D array representing the first vector.
+		vec2 (numpy.ndarray): 1D array representing the second vector.
+	Returns:
+		The dot product of the two vectors.
+	"""
+	
+	if len(vec1) != len(vec2):
 		return -1
 	
-	return sum(x * y for x, y in zip(a, b))
+	ans = 0
+	for i in range(0, len(vec1)):
+		ans += vec1[i]*vec2[i]
+	
+	return ans
