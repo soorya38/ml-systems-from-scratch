@@ -1923,7 +1923,41 @@ $$
 f(x)=x^2
 $$
 
-### 2. Evaluate a derivative
+---
+
+### 2. Linear Function
+
+Find:
+
+$$
+f'(x)
+$$
+
+for:
+
+$$
+f(x)=5x+3
+$$
+
+---
+
+### 3. Constant Derivative
+
+Find:
+
+$$
+f'(x)
+$$
+
+for:
+
+$$
+f(x)=10
+$$
+
+---
+
+### 4. Evaluate a Derivative
 
 Given:
 
@@ -1931,13 +1965,15 @@ $$
 f(x)=x^2
 $$
 
-find:
+calculate:
 
 $$
-f'(3)
+f'(4)
 $$
 
-### 3. Sign
+---
+
+### 5. Determine the Sign
 
 For:
 
@@ -1953,9 +1989,7 @@ $$
 
 ---
 
-## Medium
-
-### 4. Polynomial derivative
+### 6. Polynomial Derivative
 
 Find:
 
@@ -1969,7 +2003,93 @@ $$
 f(x)=3x^2+4x+7
 $$
 
-### 5. Gradient
+---
+
+### 7. Evaluate a Polynomial Derivative
+
+Given:
+
+$$
+f(x)=3x^2+4x+7
+$$
+
+calculate:
+
+$$
+f'(-2)
+$$
+
+---
+
+### 8. Basic Power Rule
+
+Find:
+
+$$
+f'(x)
+$$
+
+for:
+
+$$
+f(x)=x^3
+$$
+
+---
+
+### 9. Identify the Direction
+
+Given:
+
+$$
+f'(x)=-7
+$$
+
+is the function increasing or decreasing at that point?
+
+---
+
+### 10. Zero Derivative
+
+For:
+
+$$
+f(x)=x^2
+$$
+
+find the value of $x$ where:
+
+$$
+f'(x)=0
+$$
+
+---
+
+# Medium
+
+### 11. Partial Derivative
+
+Given:
+
+$$
+f(x,y)=x^2+y^2
+$$
+
+calculate:
+
+$$
+\frac{\partial f}{\partial x}
+$$
+
+and:
+
+$$
+\frac{\partial f}{\partial y}
+$$
+
+---
+
+### 12. Gradient
 
 Given:
 
@@ -1983,7 +2103,9 @@ $$
 \nabla f(x,y)
 $$
 
-### 6. Evaluate the gradient
+---
+
+### 13. Evaluate the Gradient
 
 For:
 
@@ -1994,14 +2116,131 @@ $$
 calculate the gradient at:
 
 $$
-(x,y)=(2,1)
+(x,y)=(2,3)
 $$
 
 ---
 
-## Hard
+### 14. Partial Derivative with Cross Term
 
-### 7. Gradient descent update
+Given:
+
+$$
+f(x,y)=3x^2+4xy+5y^2
+$$
+
+calculate:
+
+$$
+\frac{\partial f}{\partial x}
+$$
+
+---
+
+### 15. Second Partial Derivative
+
+For:
+
+$$
+f(x,y)=3x^2+4xy+5y^2
+$$
+
+calculate:
+
+$$
+\frac{\partial f}{\partial y}
+$$
+
+---
+
+### 16. Complete Gradient
+
+Given:
+
+$$
+f(x,y)=3x^2+4xy+5y^2
+$$
+
+find:
+
+$$
+\nabla f(x,y)
+$$
+
+---
+
+### 17. Evaluate a Gradient
+
+Given:
+
+$$
+f(x,y)=3x^2+4xy+5y^2
+$$
+
+calculate:
+
+$$
+\nabla f(1,2)
+$$
+
+---
+
+### 18. Interpret a Gradient
+
+Suppose:
+
+$$
+\nabla L(w_1,w_2)=
+\begin{bmatrix}
+4\\
+-3
+\end{bmatrix}
+$$
+
+Answer:
+
+1. What does the $4$ tell you about $w_1$?
+2. What does the $-3$ tell you about $w_2$?
+3. Should gradient descent increase or decrease $w_1$?
+4. Should gradient descent increase or decrease $w_2$?
+
+---
+
+### 19. Three Parameters
+
+Given:
+
+$$
+f(x,y,z)=x^2+y^2+z^2
+$$
+
+find:
+
+$$
+\nabla f(x,y,z)
+$$
+
+---
+
+### 20. Evaluate a Three-Parameter Gradient
+
+For:
+
+$$
+f(x,y,z)=x^2+y^2+z^2
+$$
+
+calculate the gradient at:
+
+$$
+(x,y,z)=(1,-2,3)
+$$
+
+---
+
+# Hard — Gradient Descent
+
+### 21. One Gradient Descent Update
 
 Given:
 
@@ -2021,9 +2260,109 @@ $$
 \eta=0.1
 $$
 
-Calculate one gradient descent update.
+Calculate:
 
-### 8. Multiple parameters
+1. $L'(w)$
+2. The gradient at $w=5$
+3. The new value of $w$
+
+---
+
+### 22. Multiple Gradient Descent Updates
+
+Given:
+
+$$
+L(w)=w^2
+$$
+
+Start with:
+
+$$
+w=8
+$$
+
+and:
+
+$$
+\eta=0.1
+$$
+
+Perform **four gradient descent updates**.
+
+Show:
+
+$$
+w_0\rightarrow w_1\rightarrow w_2\rightarrow w_3\rightarrow w_4
+$$
+
+---
+
+### 23. Gradient Descent from a Negative Starting Point
+
+Given:
+
+$$
+L(w)=w^2
+$$
+
+Start with:
+
+$$
+w=-6
+$$
+
+and:
+
+$$
+\eta=0.1
+$$
+
+Perform **three updates**.
+
+Explain why $w$ increases even though the update rule subtracts the gradient.
+
+---
+
+### 24. Different Learning Rates
+
+Given:
+
+$$
+L(w)=w^2
+$$
+
+Start with:
+
+$$
+w=5
+$$
+
+Calculate one gradient descent update for each learning rate:
+
+#### a.
+
+$$
+\eta=0.01
+$$
+
+#### b.
+
+$$
+\eta=0.1
+$$
+
+#### c.
+
+$$
+\eta=0.5
+$$
+
+Which learning rate produces the largest parameter update?
+
+---
+
+### 25. Two-Parameter Gradient Descent
 
 Given:
 
@@ -2036,7 +2375,7 @@ Start with:
 $$
 w=
 \begin{bmatrix}
-3\
+3\\
 4
 \end{bmatrix}
 $$
@@ -2049,49 +2388,412 @@ $$
 
 Calculate:
 
-1. The gradient.
-2. The new values of (w_1,w_2).
+1. $\frac{\partial L}{\partial w_1}$
+2. $\frac{\partial L}{\partial w_2}$
+3. The gradient
+4. The updated $w_1$
+5. The updated $w_2$
+6. The new parameter vector
+
+---
+
+### 26. Two Gradient Descent Updates
+
+Given:
+
+$$
+L(w_1,w_2)=w_1^2+w_2^2
+$$
+
+Start with:
+
+$$
+w=
+\begin{bmatrix}
+4\\
+2
+\end{bmatrix}
+$$
+
+and:
+
+$$
+\eta=0.1
+$$
+
+Perform **two complete gradient descent updates**.
+
+Show:
+
+$$
+w_0\rightarrow w_1\rightarrow w_2
+$$
+
+Also calculate the loss:
+
+- before any updates
+- after the first update
+- after the second update
+
+---
+
+### 27. Unequal Parameter Effects
+
+Given:
+
+$$
+L(w_1,w_2)=2w_1^2+w_2^2
+$$
+
+Start with:
+
+$$
+w_1=3,\qquad w_2=4
+$$
+
+and:
+
+$$
+\eta=0.1
+$$
+
+Calculate:
+
+1. $\frac{\partial L}{\partial w_1}$
+2. $\frac{\partial L}{\partial w_2}$
+3. The gradient
+4. One gradient descent update
+5. The loss before the update
+6. The loss after the update
+7. Verify that the loss decreased
+
+---
+
+### 28. Three-Parameter Gradient Descent
+
+Given:
+
+$$
+L(w_1,w_2,w_3)=w_1^2+w_2^2+w_3^2
+$$
+
+Start with:
+
+$$
+w=
+\begin{bmatrix}
+2\\
+-3\\
+4
+\end{bmatrix}
+$$
+
+and:
+
+$$
+\eta=0.1
+$$
+
+Calculate:
+
+1. The gradient
+2. The negative gradient
+3. One gradient descent update
+4. The new parameter vector
+5. The loss before and after the update
+
+---
+
+### 29. Reason About the Gradient
+
+Suppose the current parameters are:
+
+$$
+w=
+\begin{bmatrix}
+2\\
+-3
+\end{bmatrix}
+$$
+
+and the gradient is:
+
+$$
+\nabla L=
+\begin{bmatrix}
+-4\\
+6
+\end{bmatrix}
+$$
+
+with:
+
+$$
+\eta=0.1
+$$
+
+Calculate:
+
+1. The negative gradient
+2. The update amount for each parameter
+3. The new parameter vector
+4. Does $w_1$ increase or decrease?
+5. Does $w_2$ increase or decrease?
+
+---
+
+### 30. Complete Gradient Descent Problem
+
+Consider the loss function:
+
+$$
+L(w_1,w_2)=w_1^2+2w_2^2
+$$
+
+Start with:
+
+$$
+w_1=-3,\qquad w_2=4
+$$
+
+and:
+
+$$
+\eta=0.1
+$$
+
+Perform **three gradient descent updates**.
+
+For each update, calculate:
+
+1. The current gradient
+2. The update for $w_1$
+3. The update for $w_2$
+4. The new values of $w_1,w_2$
+5. The loss after the update
+
+Finally answer:
+
+- Is the loss decreasing?
+- Are the parameters moving toward the minimum?
+- What is the role of the negative sign in the update?
+- What would happen if the learning rate were much larger?
 
 ---
 
 # Expected Answers
 
-1. **Answer:**
+## Easy
+
+### 1. Answer
+
 $$
 f'(x)=2x
 $$
 
-2. **Answer:**
+### 2. Answer
+
 $$
-f'(3)=6
+f'(x)=5
 $$
 
-3. **Answer:** Negative.
+### 3. Answer
 
-4. **Answer:**
+$$
+f'(x)=0
+$$
+
+### 4. Answer
+
+$$
+f'(x)=2x
+$$
+
+$$
+f'(4)=8
+$$
+
+### 5. Answer
+
+**Negative.**
+
+$$
+f'(-5)=-10
+$$
+
+### 6. Answer
+
 $$
 f'(x)=6x+4
 $$
 
-5. **Answer:**
+### 7. Answer
+
 $$
+f'(-2)=6(-2)+4
+$$
+
+$$
+=-8
+$$
+
+### 8. Answer
+
+$$
+f'(x)=3x^2
+$$
+
+### 9. Answer
+
+**Decreasing.**
+
+### 10. Answer
+
+$$
+f'(x)=2x
+$$
+
+$$
+2x=0
+$$
+
+$$
+\boxed{x=0}
+$$
+
+---
+
+# Medium
+
+### 11. Answer
+
+$$
+\frac{\partial f}{\partial x}=2x
+$$
+
+$$
+\frac{\partial f}{\partial y}=2y
+$$
+
+### 12. Answer
+
+$$
+\boxed{
 \nabla f=
 \begin{bmatrix}
-2x\
+2x\\
 2y
-\end{bmatrix}
+\end{bmatrix}}
 $$
 
-6. **Answer:**
+### 13. Answer
+
 $$
-\nabla f(2,1)=
+\nabla f(2,3)=
 \begin{bmatrix}
-4\
-2
+4\\
+6
 \end{bmatrix}
 $$
 
-7. **Answer:**
+### 14. Answer
+
+$$
+\boxed{
+\frac{\partial f}{\partial x}=6x+4y
+}
+$$
+
+### 15. Answer
+
+$$
+\boxed{
+\frac{\partial f}{\partial y}=4x+10y
+}
+$$
+
+### 16. Answer
+
+$$
+\boxed{
+\nabla f=
+\begin{bmatrix}
+6x+4y\\
+4x+10y
+\end{bmatrix}}
+$$
+
+### 17. Answer
+
+At $(1,2)$:
+
+$$
+\frac{\partial f}{\partial x}=6(1)+4(2)=14
+$$
+
+$$
+\frac{\partial f}{\partial y}=4(1)+10(2)=24
+$$
+
+Therefore:
+
+$$
+\boxed{
+\nabla f(1,2)=
+\begin{bmatrix}
+14\\
+24
+\end{bmatrix}}
+$$
+
+### 18. Answer
+
+Given:
+
+$$
+\nabla L=
+\begin{bmatrix}
+4\\
+-3
+\end{bmatrix}
+$$
+
+1. $w_1$: increasing $w_1$ increases the loss.
+2. $w_2$: increasing $w_2$ decreases the loss.
+3. Gradient descent decreases $w_1$.
+4. Gradient descent increases $w_2$.
+
+### 19. Answer
+
+$$
+\boxed{
+\nabla f=
+\begin{bmatrix}
+2x\\
+2y\\
+2z
+\end{bmatrix}}
+$$
+
+### 20. Answer
+
+At $(1,-2,3)$:
+
+$$
+\boxed{
+\nabla f=
+\begin{bmatrix}
+2\\
+-4\\
+6
+\end{bmatrix}}
+$$
+
+---
+
+# Hard — Gradient Descent
+
+### 21. Answer
 
 $$
 L'(w)=2w
@@ -2102,20 +2804,173 @@ L'(5)=10
 $$
 
 $$
-w_{\text{new}}=5-0.1(10)=4
+w_{\text{new}}
+=
+5-0.1(10)
 $$
 
-8. **Answer:**
+$$
+\boxed{w_{\text{new}}=4}
+$$
+
+---
+
+### 22. Answer
+
+$$
+w_0=8
+$$
+
+Update 1:
+
+$$
+w_1=8-0.1(16)=6.4
+$$
+
+Update 2:
+
+$$
+w_2=6.4-0.1(12.8)=5.12
+$$
+
+Update 3:
+
+$$
+w_3=5.12-0.1(10.24)=4.096
+$$
+
+Update 4:
+
+$$
+w_4=4.096-0.1(8.192)=3.2768
+$$
+
+Therefore:
+
+$$
+\boxed{
+8\rightarrow6.4\rightarrow5.12\rightarrow4.096\rightarrow3.2768
+}
+$$
+
+---
+
+### 23. Answer
+
+$$
+L'(w)=2w
+$$
+
+Start:
+
+$$
+w=-6
+$$
+
+Update 1:
+
+$$
+w=-6-0.1(-12)=-4.8
+$$
+
+Update 2:
+
+$$
+w=-4.8-0.1(-9.6)=-3.84
+$$
+
+Update 3:
+
+$$
+w=-3.84-0.1(-7.68)=-3.072
+$$
+
+Therefore:
+
+$$
+\boxed{
+-6\rightarrow-4.8\rightarrow-3.84\rightarrow-3.072
+}
+$$
+
+The gradient is negative, so subtracting the negative gradient increases $w$.
+
+---
+
+### 24. Answer
+
+At:
+
+$$
+w=5
+$$
+
+the gradient is:
+
+$$
+L'(5)=10
+$$
+
+#### a. $\eta=0.01$
+
+$$
+w_{\text{new}}=5-0.01(10)
+$$
+
+$$
+\boxed{4.9}
+$$
+
+#### b. $\eta=0.1$
+
+$$
+w_{\text{new}}=5-0.1(10)
+$$
+
+$$
+\boxed{4}
+$$
+
+#### c. $\eta=0.5$
+
+$$
+w_{\text{new}}=5-0.5(10)
+$$
+
+$$
+\boxed{0}
+$$
+
+Largest step:
+
+$$
+\boxed{\eta=0.5}
+$$
+
+---
+
+### 25. Answer
+
+$$
+L(w_1,w_2)=w_1^2+w_2^2
+$$
+
+Partial derivatives:
+
+$$
+\frac{\partial L}{\partial w_1}=2w_1
+$$
+
+$$
+\frac{\partial L}{\partial w_2}=2w_2
+$$
+
+At $(3,4)$:
 
 $$
 \nabla L=
 \begin{bmatrix}
-2w_1\
-2w_2
-\end{bmatrix}
-=
-\begin{bmatrix}
-6\
+6\\
 8
 \end{bmatrix}
 $$
@@ -2124,21 +2979,556 @@ Update:
 
 $$
 \begin{bmatrix}
-3\
+3\\
 4
 \end{bmatrix}
 -
 0.1
 \begin{bmatrix}
-6\
+6\\
+8
+\end{bmatrix}
+$$
+
+$$
+=
+\begin{bmatrix}
+2.4\\
+3.2
+\end{bmatrix}
+$$
+
+Therefore:
+
+$$
+\boxed{
+w_{\text{new}}=
+\begin{bmatrix}
+2.4\\
+3.2
+\end{bmatrix}}
+$$
+
+---
+
+### 26. Answer
+
+Start:
+
+$$
+w_0=
+\begin{bmatrix}
+4\\
+2
+\end{bmatrix}
+$$
+
+Gradient:
+
+$$
+\nabla L=
+\begin{bmatrix}
+2w_1\\
+2w_2
+\end{bmatrix}
+$$
+
+First update:
+
+$$
+\nabla L=
+\begin{bmatrix}
+8\\
+4
+\end{bmatrix}
+$$
+
+$$
+w_1=
+\begin{bmatrix}
+4\\
+2
+\end{bmatrix}
+-
+0.1
+\begin{bmatrix}
+8\\
+4
+\end{bmatrix}
+$$
+
+$$
+\boxed{
+w_1=
+\begin{bmatrix}
+3.2\\
+1.6
+\end{bmatrix}}
+$$
+
+Second update:
+
+$$
+\nabla L=
+\begin{bmatrix}
+6.4\\
+3.2
+\end{bmatrix}
+$$
+
+$$
+w_2=
+\begin{bmatrix}
+3.2\\
+1.6
+\end{bmatrix}
+-
+0.1
+\begin{bmatrix}
+6.4\\
+3.2
+\end{bmatrix}
+$$
+
+$$
+\boxed{
+w_2=
+\begin{bmatrix}
+2.56\\
+1.28
+\end{bmatrix}}
+$$
+
+Losses:
+
+$$
+L(4,2)=20
+$$
+
+$$
+L(3.2,1.6)=12.8
+$$
+
+$$
+L(2.56,1.28)=8.192
+$$
+
+The loss decreases at every update.
+
+---
+
+### 27. Answer
+
+$$
+L(w_1,w_2)=2w_1^2+w_2^2
+$$
+
+Partial derivatives:
+
+$$
+\frac{\partial L}{\partial w_1}=4w_1
+$$
+
+$$
+\frac{\partial L}{\partial w_2}=2w_2
+$$
+
+At $(3,4)$:
+
+$$
+\nabla L=
+\begin{bmatrix}
+12\\
+8
+\end{bmatrix}
+$$
+
+Update:
+
+$$
+\begin{bmatrix}
+3\\
+4
+\end{bmatrix}
+-
+0.1
+\begin{bmatrix}
+12\\
 8
 \end{bmatrix}
 =
 \begin{bmatrix}
-2.4\
+1.8\\
 3.2
 \end{bmatrix}
 $$
+
+Loss before:
+
+$$
+L(3,4)=2(3^2)+4^2
+$$
+
+$$
+=34
+$$
+
+Loss after:
+
+$$
+L(1.8,3.2)
+=
+2(1.8^2)+3.2^2
+$$
+
+$$
+=16.72
+$$
+
+Therefore:
+
+$$
+\boxed{34\rightarrow16.72}
+$$
+
+The loss decreased.
+
+---
+
+### 28. Answer
+
+$$
+L(w_1,w_2,w_3)=w_1^2+w_2^2+w_3^2
+$$
+
+Gradient:
+
+$$
+\nabla L=
+\begin{bmatrix}
+2w_1\\
+2w_2\\
+2w_3
+\end{bmatrix}
+$$
+
+At $(2,-3,4)$:
+
+$$
+\nabla L=
+\begin{bmatrix}
+4\\
+-6\\
+8
+\end{bmatrix}
+$$
+
+Negative gradient:
+
+$$
+-\nabla L=
+\begin{bmatrix}
+-4\\
+6\\
+-8
+\end{bmatrix}
+$$
+
+Update:
+
+$$
+\begin{bmatrix}
+2\\
+-3\\
+4
+\end{bmatrix}
+-
+0.1
+\begin{bmatrix}
+4\\
+-6\\
+8
+\end{bmatrix}
+$$
+
+$$
+=
+\boxed{
+\begin{bmatrix}
+1.6\\
+-2.4\\
+3.2
+\end{bmatrix}}
+$$
+
+Loss before:
+
+$$
+L(2,-3,4)=29
+$$
+
+Loss after:
+
+$$
+L(1.6,-2.4,3.2)=18.56
+$$
+
+---
+
+### 29. Answer
+
+Given:
+
+$$
+\nabla L=
+\begin{bmatrix}
+-4\\
+6
+\end{bmatrix}
+$$
+
+Negative gradient:
+
+$$
+-\nabla L=
+\begin{bmatrix}
+4\\
+-6
+\end{bmatrix}
+$$
+
+Update amount:
+
+$$
+0.1
+\begin{bmatrix}
+4\\
+-6
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.4\\
+-0.6
+\end{bmatrix}
+$$
+
+New parameters:
+
+$$
+\begin{bmatrix}
+2\\
+-3
+\end{bmatrix}
++
+\begin{bmatrix}
+0.4\\
+-0.6
+\end{bmatrix}
+=
+\boxed{
+\begin{bmatrix}
+2.4\\
+-3.6
+\end{bmatrix}}
+$$
+
+Therefore:
+
+- $w_1$ increases: $2\rightarrow2.4$
+- $w_2$ decreases: $-3\rightarrow-3.6$
+
+---
+
+### 30. Answer
+
+Given:
+
+$$
+L(w_1,w_2)=w_1^2+2w_2^2
+$$
+
+Partial derivatives:
+
+$$
+\frac{\partial L}{\partial w_1}=2w_1
+$$
+
+$$
+\frac{\partial L}{\partial w_2}=4w_2
+$$
+
+Therefore:
+
+$$
+\nabla L=
+\begin{bmatrix}
+2w_1\\
+4w_2
+\end{bmatrix}
+$$
+
+Start:
+
+$$
+w_0=
+\begin{bmatrix}
+-3\\
+4
+\end{bmatrix}
+$$
+
+### Update 1
+
+Gradient:
+
+$$
+\nabla L=
+\begin{bmatrix}
+-6\\
+16
+\end{bmatrix}
+$$
+
+Update:
+
+$$
+w_1=
+\begin{bmatrix}
+-3\\
+4
+\end{bmatrix}
+-
+0.1
+\begin{bmatrix}
+-6\\
+16
+\end{bmatrix}
+$$
+
+$$
+\boxed{
+w_1=
+\begin{bmatrix}
+-2.4\\
+2.4
+\end{bmatrix}}
+$$
+
+Loss:
+
+$$
+L(-2.4,2.4)
+=
+(-2.4)^2+2(2.4)^2
+$$
+
+$$
+\boxed{17.28}
+$$
+
+### Update 2
+
+Gradient:
+
+$$
+\nabla L=
+\begin{bmatrix}
+-4.8\\
+9.6
+\end{bmatrix}
+$$
+
+Update:
+
+$$
+w_2=
+\begin{bmatrix}
+-2.4\\
+2.4
+\end{bmatrix}
+-
+0.1
+\begin{bmatrix}
+-4.8\\
+9.6
+\end{bmatrix}
+$$
+
+$$
+\boxed{
+w_2=
+\begin{bmatrix}
+-1.92\\
+1.44
+\end{bmatrix}}
+$$
+
+Loss:
+
+$$
+L(-1.92,1.44)=7.3728
+$$
+
+### Update 3
+
+Gradient:
+
+$$
+\nabla L=
+\begin{bmatrix}
+-3.84\\
+5.76
+\end{bmatrix}
+$$
+
+Update:
+
+$$
+w_3=
+\begin{bmatrix}
+-1.92\\
+1.44
+\end{bmatrix}
+-
+0.1
+\begin{bmatrix}
+-3.84\\
+5.76
+\end{bmatrix}
+$$
+
+$$
+\boxed{
+w_3=
+\begin{bmatrix}
+-1.536\\
+0.864
+\end{bmatrix}}
+$$
+
+Loss:
+
+$$
+L(-1.536,0.864)=3.6864
+$$
+
+Therefore:
+
+$$
+34\rightarrow17.28\rightarrow7.3728\rightarrow3.6864
+$$
+
+The loss is decreasing.
+
+The parameters are moving toward:
+
+$$
+\boxed{(0,0)}
+$$
+
+The negative sign makes us move opposite to the gradient, toward lower loss.
+
+A much larger learning rate can cause the updates to become too large, potentially causing overshooting or instability.
 
 ---
 
